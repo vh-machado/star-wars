@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/star-wars/static/js/main.1cb58da4.js",
+    "main.js": "/star-wars/static/js/main.fbbd823a.js",
     "static/js/787.161ebaff.chunk.js": "/star-wars/static/js/787.161ebaff.chunk.js",
     "static/media/search-banner-droids.png": "/star-wars/static/media/search-banner-droids.bed0301e69fce625ebbe.png",
     "index.html": "/star-wars/index.html",
-    "main.1cb58da4.js.map": "/star-wars/static/js/main.1cb58da4.js.map",
+    "main.fbbd823a.js.map": "/star-wars/static/js/main.fbbd823a.js.map",
     "787.161ebaff.chunk.js.map": "/star-wars/static/js/787.161ebaff.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.1cb58da4.js"
+    "static/js/main.fbbd823a.js"
   ]
 }
