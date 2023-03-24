@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Flex, Text, VStack } from '@chakra-ui/react';
-import { DeleteIcon } from '@chakra-ui/icons';
+import { Flex, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 import { colors } from '../../assets/colors';
 import user from '../../user';
 import ItemsGrid from '../../components/ItemsGrid';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 export default function Lists() {
   const [arrayOfLists, setArrayOfLists] = useState([]);
@@ -21,38 +21,33 @@ export default function Lists() {
     setArrayOfLists(user.lists);
   };
 
-  const ListBanner = () => {
-    return <Text color={colors.lavender}>ListBanner</Text>;
-  };
-
-  const List = ({ id, name }) => {
+  const NoLists = () => {
     return (
-      <Flex w="80%">
-        <Button w="100%" key={id} onClick={() => navigate(id)}>
-          {name}
-        </Button>
-        <Button h="100%" ms="10px" onClick={() => removeList(id)}>
-          <DeleteIcon />
-        </Button>
+      <Flex h="100%" align="center" justify="center" direction={'column'}>
+        <Player
+          autoplay
+          loop
+          src="https://assets7.lottiefiles.com/animated_stickers/lf_tgs_pp2pze08.json"
+          style={{ height: '180px', width: '180px' }}
+        />
+        <Text color={colors.lavender} fontWeight={'medium'} mt="30px">Create your first list</Text>
       </Flex>
     );
   };
 
   return (
     <>
-      <ListBanner />
+      <Text color={colors.lavender} fontSize={'2xl'} fontWeight={"semibold"}>
+        My Lists
+      </Text>
       {arrayOfLists.length > 0 ? (
-        <ItemsGrid items={arrayOfLists} removeItem={removeList} listsAsItems={true} />
+        <ItemsGrid
+          items={arrayOfLists}
+          removeItem={removeList}
+          listsAsItems={true}
+        />
       ) : (
-        /*
-        <VStack>
-          {arrayOfLists.map(list => {
-            return <List key={list.id} {...list} />;
-          })}
-        </VStack>
-        */
-
-        <Text color={colors.lavender}>Create your first list</Text>
+        <NoLists />
       )}
     </>
   );

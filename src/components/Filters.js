@@ -1,8 +1,10 @@
 import { Box, Button, HStack, Text } from '@chakra-ui/react';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { colors } from '../assets/colors';
 
 export default function Filters({ navigateToFilter }) {
+
   const FilterButton = ({ children, onClick }) => {
     return (
       <Button

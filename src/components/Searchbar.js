@@ -1,57 +1,59 @@
-import React from 'react';
-import {
-  Input,
-  InputGroup,
-  InputLeftAddon,
-} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Button, Input, InputGroup, InputRightAddon, useDisclosure } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
+import AlertSearch from './AlertSearch';
 
 export default function SearchBar({
   params: navigateParams,
-  resources,
-  setResults,
+  navigateToSearch,
 }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [value, setValue] = useState('');
+  const handleChange = e => setValue(e.target.value);
+
   const handleSubmit = e => e.preventDefault();
 
-  const handleSearchChange = e => {
-    console.log('resource atual para pesquisa: ', resources);
-
-    if (!e.target.value) {
-      if (navigateParams.category) {
-        return setResults(resources);
-      }
-      return setResults([]);
+  const validateSearch = () => {
+    if(navigateParams.category) {
+      navigateToSearch(navigateParams.category, value)
+    } else {
+      onOpen()
     }
-
-    const results = resources?.filter(resources =>
-      resources.name.includes(e.target.value)
-    );
-
-    setResults(results);
-  };
+  }
 
   return (
     <>
       <InputGroup
-        w={["100%","70%"]}
+        w={['100%', '70%']}
         borderRadius={5}
         size="sm"
         bg="white"
-        p="5px"
+        px="0px"
+        py="5px"
         onSubmit={handleSubmit}
+        alignItems={'center'}
         position={0}
       >
-        <InputLeftAddon borderWidth={0} bg="white">
-          <Search2Icon color="gray.600" />
-        </InputLeftAddon>
         <Input
           type="text"
           placeholder="Search..."
           borderWidth={0}
+          value={value}
+          m={'5px'}
           _focusVisible={false}
-          onChange={handleSearchChange}
+          onChange={handleChange}
         />
+        <InputRightAddon borderWidth={0} px={'10px'} bg="white">
+          <Button
+            colorScheme={'teal'}
+            onClick={() => validateSearch()}
+          >
+            <Search2Icon color="white" />
+          </Button>
+        </InputRightAddon>
       </InputGroup>
+
+      <AlertSearch {...{isOpen, onClose}}/>
     </>
   );
 }
