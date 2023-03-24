@@ -36,7 +36,7 @@ export default function Card({ item: content, listsAsItems }) {
       }}
       _active={{ bg: colors.delftBlue }}
       _disabled={{ cursor: 'pointer' }}
-      onClick={() => navigate(listsAsItems ? id : `/${category}/${id}`)}
+      onClick={() => navigate(listsAsItems ? id : `/star-wars/${category}/${id}`)}
     >
       {!listsAsItems && (
         <Flex

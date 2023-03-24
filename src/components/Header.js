@@ -26,8 +26,8 @@ export default function Header() {
 
     return (
       <HStack w="100%" justifyContent={'end'} fontFamily={'Montserrat'}>
-        <MenuButton onClick={() => navigate('/')}>Home</MenuButton>
-        <MenuButton onClick={() => navigate('/lists')}>Lists</MenuButton>
+        <MenuButton onClick={() => navigate('/star-wars')}>Home</MenuButton>
+        <MenuButton onClick={() => navigate('/star-wars/lists')}>Lists</MenuButton>
       </HStack>
     );
   };

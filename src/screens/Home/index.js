@@ -130,12 +130,12 @@ export default function Home() {
   };
 
   const navigateToFilter = (filter, page = 1) => {
-    navigate(`/${filter}/pages/${page}`);
+    navigate(`/star-wars/${filter}/pages/${page}`);
     filterData(filter, page);
   };
 
   const navigateToSearch = (category, search, page = 1) => {
-    navigate(`/${category}/search/${search}/pages/${page}`);
+    navigate(`/star-wars/${category}/search/${search}/pages/${page}`);
     searchData(category, search, page);
   };
 

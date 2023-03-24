@@ -9,7 +9,6 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 export default function Lists() {
   const [arrayOfLists, setArrayOfLists] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setArrayOfLists(user.lists);

@@ -52,7 +52,7 @@ export default function ModalAddList({ isOpen, onClose, details }) {
       items: [firstItem],
     };
     user.lists.push(newList);
-    navigate(`/lists/${newList.id}`);
+    navigate(`/star-wars/lists/${newList.id}`);
   }
 
   function selectList(listId) {

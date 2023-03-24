@@ -11,7 +11,7 @@ import PageNotFound from '../screens/PageNotFound';
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/star-wars" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path=":/pages/:pageNumber" element={<Home />} />
         <Route path=":category" element={<Home />} />
